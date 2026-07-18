@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="
+             https://maven.apache.org/POM/4.0.0
+             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.0</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.example</groupId>
+    <artifactId>dog-bark-listener</artifactId>
+    <version>1.0.0</version>
+
+    <name>dog-bark-listener</name>
+    <description>Real-time dog bark detection using ONNX Runtime</description>
+
+    <properties>
+
+        <java.version>21</java.version>
+
+        <onnxruntime.version>1.20.0</onnxruntime.version>
+
+        <tarsos.version>2.5</tarsos.version>
+
+    </properties>
+
+<repositories>
+  <repository>
+  <id>be.0110.repo-releases</id>
+  <name>0110.be repository</name>
+  <url>https://mvn.0110.be/releases</url>
+</repository>
+</repositories>
+
+
+    <dependencies>
+
+        <!-- Spring Boot -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- Configuration Properties -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- ONNX Runtime -->
+
+        <dependency>
+            <groupId>com.microsoft.onnxruntime</groupId>
+            <artifactId>onnxruntime</artifactId>
+            <version>${onnxruntime.version}</version>
+        </dependency>
+
+        <!-- Audio DSP -->
+	<dependency>
+    		<groupId>com.github.wendykierp</groupId>
+    		<artifactId>JTransforms</artifactId>
+    		<version>3.1</version>
+	</dependency>
+	
+       <dependency>
+   		 <groupId>org.apache.commons</groupId>
+    		<artifactId>commons-csv</artifactId>
+    		<version>1.13.0</version>
+	</dependency>
+        
+        <dependency>
+  		<groupId>be.tarsos.dsp</groupId>
+  		<artifactId>core</artifactId>
+  		<version>2.5</version>
+	</dependency>
+	<dependency>
+ 		 <groupId>be.tarsos.dsp</groupId>
+  		<artifactId>jvm</artifactId>
+  		<version>2.5</version>
+	</dependency>
+
+        <!-- Logging (included by Spring Boot, but explicit if desired) -->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <!-- Unit Tests -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+
+       
+  
+        <plugins>
+ <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.2.1</version>
+            <configuration>
+                <mainClass>com.example.Application</mainClass>
+            </configuration>
+        </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>
