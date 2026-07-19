@@ -1,0 +1,25 @@
+audio:
+  sample-rate: 16000
+  channels: 1
+  sample-size: 16
+  signed: true
+  big-endian: false
+  chunk-millis: 1000
+  buffer-size: 32768
+
+detector:
+  confidence-threshold: 0.90
+  cooldown-millis: 5000
+
+model:
+  path: model/yamnet.onnx
+  input-width: 64
+  input-height: 96
+
+response:
+  sound-file: sounds/response.wav
+  volume: 1.0
+
+logging:
+  level:
+    root: INFO
